@@ -122,10 +122,6 @@ footer{border-top:1px solid var(--ink-200);margin-top:64px;padding:38px 0 54px}
       <i data-lucide="search" style="width:20px;height:20px"></i>
       <input id="q" type="text" placeholder="Пошук документа: CRO, воронка, тести..." autocomplete="off">
     </div>
-    <div class="stats">
-      <div class="stat"><div class="n" id="totalCount">1</div><div class="l">документ</div></div>
-      <div class="stat"><div class="n" id="catCount">1</div><div class="l">напрям</div></div>
-    </div>
   </div>
 </header>
 
@@ -178,8 +174,8 @@ DATA.forEach(sec=>{
     </div>`;
   content.appendChild(s);
 });
-document.getElementById('totalCount').textContent = total;
-document.getElementById('catCount').textContent = DATA.length;
+const _tc=document.getElementById('totalCount'); if(_tc) _tc.textContent = total;
+const _cc=document.getElementById('catCount'); if(_cc) _cc.textContent = DATA.length;
 
 const q = document.getElementById('q');
 const empty = document.getElementById('empty');
