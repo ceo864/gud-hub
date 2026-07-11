@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO GUD Flow — gud × magic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root{
+  /* Magic — used only as a co-brand marker (shared doc) */
+  --magic-gradient:linear-gradient(135deg,#38A0FF 0%,#AA7AFF 100%);
+  --purple-50:#F2EBFF;--purple-600:#7A45EB;
+  /* GUD brand */
+  --yellow:#F5E003;--yellow-700:#B8A600;--yellow-bg:rgba(245,224,3,.20);--yellow-soft:rgba(245,224,3,.12);
+  --grey:#6B7280;
+  --gud-ink:#151515;--gud-black:#0B0B0B;
+  --paper:#F6F6F3;
+  --ink-0:#FFFFFF;--ink-50:#F6F6F3;--ink-100:#ECECE8;--ink-200:#DEDED8;--ink-300:#C6C6BE;
+  --ink-400:#9A9A90;--ink-500:#6E6E66;--ink-600:#4B4B44;--ink-700:#2E2E29;--ink-800:#1A1A17;--ink-900:#0F0F0C;
+  --success:#2EA574;--success-bg:#E4F5EC;--warning:#B8862B;--warning-bg:#F7EFDC;--danger:#C4494F;--danger-bg:#F7E7E7;
+  --radius-md:14px;--radius-lg:18px;--radius-xl:26px;--radius-pill:999px;
+  --shadow-sm:0 2px 6px rgba(20,20,15,.06),0 1px 2px rgba(20,20,15,.04);
+  --shadow-md:0 8px 20px rgba(20,20,15,.08),0 2px 4px rgba(20,20,15,.04);
+  --shadow-lg:0 18px 40px rgba(20,20,15,.10),0 4px 8px rgba(20,20,15,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Onest',system-ui,sans-serif;background:var(--paper);color:var(--ink-800);font-weight:300;line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+section{padding:56px 0 0}
+h2{font-size:32px;font-weight:800;letter-spacing:-.01em;color:var(--ink-900);margin-bottom:8px}
+.sub{color:var(--ink-500);font-size:16px;margin-bottom:28px;max-width:640px}
+.grad-text{color:var(--gud-ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:12px}
+.eyebrow .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:var(--radius-pill);background:var(--yellow);color:#151515;font-size:13px;font-weight:800}
+.card{background:var(--ink-0);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-md)}
+.icon{width:22px;height:22px;stroke-width:2px}
+
+/* header */
+header{background:var(--gud-ink);color:#fff;padding:72px 0 64px;position:relative;overflow:hidden;border-bottom:4px solid var(--yellow)}
+header .deco{position:absolute;border-radius:var(--radius-pill);background:rgba(245,224,3,.12)}
+header .d1{width:420px;height:120px;transform:rotate(-30deg);top:-40px;right:-100px}
+header .d2{width:300px;height:90px;transform:rotate(-30deg);bottom:-30px;left:-80px}
+.logo-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:44px;position:relative}
+.logo-row svg{height:36px;width:auto;display:block}
+.client-badge{border:1px solid var(--yellow);color:var(--yellow);border-radius:var(--radius-pill);padding:8px 20px;font-size:14px;font-weight:600;letter-spacing:.04em}
+header h1{font-size:60px;font-weight:900;letter-spacing:-.03em;line-height:1.05;position:relative}
+header .tagline{font-size:19px;font-weight:300;margin-top:16px;max-width:600px;opacity:.92;position:relative}
+.cobrand{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:13px;font-weight:500;letter-spacing:.03em;color:rgba(255,255,255,.7);position:relative}
+.cobrand .mm{font-weight:800;background:var(--magic-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* funnel */
+.funnel{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.fstep{display:flex;align-items:center;gap:16px}
+.fbar{height:56px;border-radius:var(--radius-md);background:var(--gud-ink);display:flex;align-items:center;gap:12px;padding:0 20px;color:#fff;font-weight:600;font-size:16px;box-shadow:var(--shadow-sm)}
+.fbar i{color:var(--yellow)}
+.fmeta{font-size:14px;color:var(--ink-500);white-space:nowrap}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tool .thead{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.tool .thead i{color:var(--gud-ink)}
+.tool h3{font-size:17px;font-weight:700;color:var(--ink-900)}
+.tool p{font-size:14.5px;color:var(--ink-600)}
+
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.role{position:relative;overflow:hidden}
+.role .chip{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px;border-radius:var(--radius-pill);margin-bottom:14px}
+.role.magic .chip{background:var(--purple-50);color:var(--purple-600)}
+.role.client .chip{background:var(--yellow-bg);color:#5C5300}
+.role h3{font-size:19px;font-weight:800;color:var(--ink-900);margin-bottom:4px}
+.role .who{font-size:14px;color:var(--ink-400);margin-bottom:12px}
+.role ul{list-style:none}
+.role li{font-size:14.5px;color:var(--ink-600);padding:5px 0 5px 24px;position:relative}
+.role li::before{content:"";position:absolute;left:0;top:11px;width:12px;height:4px;border-radius:2px;background:var(--yellow)}
+
+/* timeline */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tstep{position:relative}
+.tstep .tnum{width:40px;height:40px;border-radius:var(--radius-pill);background:var(--yellow);color:#151515;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:var(--shadow-sm)}
+.tstep h3{font-size:16.5px;font-weight:700;color:var(--ink-900);margin-bottom:6px}
+.tstep p{font-size:14px;color:var(--ink-600)}
+.cycle-note{margin-top:20px;background:var(--yellow-soft);border-radius:var(--radius-md);padding:16px 22px;font-size:15px;color:var(--ink-700);display:flex;gap:12px;align-items:center}
+.cycle-note i{color:var(--gud-ink);flex-shrink:0}
+
+/* rules */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rule{display:flex;gap:16px;align-items:flex-start}
+.rule .ric{width:44px;height:44px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rule.ok .ric{background:var(--success-bg);color:var(--success)}
+.rule.no .ric{background:var(--danger-bg);color:var(--danger)}
+.rule h3{font-size:16.5px;font-weight:700;color:var(--ink-900);margin-bottom:4px}
+.rule p{font-size:14.5px;color:var(--ink-600)}
+.flow-strip{margin-top:20px;background:var(--gud-black);border-radius:var(--radius-lg);padding:24px 28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.flow-strip .fs{color:#fff;font-size:15px;font-weight:500;display:flex;align-items:center;gap:10px}
+.flow-strip .fs i{color:var(--yellow)}
+.flow-strip .arr{color:var(--yellow);font-weight:700}
+
+/* weekly */
+.week{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wcard .whead{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.wcard .whead i{color:var(--gud-ink)}
+.wcard h3{font-size:16.5px;font-weight:700;color:var(--ink-900)}
+.wcard p{font-size:14.5px;color:var(--ink-600)}
+
+/* ICE */
+.ice{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ice .card{position:relative;overflow:hidden}
+.ice .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--yellow)}
+.ice .card h3{font-size:17px;font-weight:800;margin-bottom:6px}
+.ice .card p{font-size:14.5px;color:var(--ink-600)}
+.ice .letter{font-size:40px;font-weight:900;letter-spacing:-.02em;margin-bottom:6px;color:var(--gud-ink)}
+.ice-note{margin-top:16px;font-size:15px;color:var(--ink-500)}
+
+/* test card */
+table{width:100%;border-collapse:collapse;background:var(--ink-0);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+th,td{text-align:left;padding:14px 20px;font-size:14.5px}
+th{background:var(--gud-ink);color:#fff;font-weight:600;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+td:first-child{font-weight:600;color:var(--ink-900);width:220px;border-left:4px solid var(--yellow)}
+td{color:var(--ink-600);border-top:1px solid var(--ink-100)}
+
+/* kpi */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{text-align:left;border-top:4px solid var(--yellow)}
+.kpi .kv{font-size:19px;font-weight:900;letter-spacing:-.01em;color:var(--gud-ink)}
+.kpi .kl{font-size:13.5px;color:var(--ink-500);margin-top:4px}
+.kpi-note{margin-top:20px;background:var(--yellow-soft);border-radius:var(--radius-md);padding:16px 22px;font-size:15px;color:var(--ink-700);display:flex;gap:12px;align-items:center}
+.kpi-note i{color:var(--gud-ink);flex-shrink:0}
+
+footer{margin-top:72px;background:var(--gud-black);color:var(--ink-400);padding:36px 0;border-top:4px solid var(--yellow)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer .fm{font-weight:900;font-size:20px;color:#fff;letter-spacing:.02em}
+footer .fm .mm{background:var(--magic-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+footer p{font-size:13.5px}
+
+@media(max-width:760px){
+  header h1{font-size:40px}
+  .tools,.roles,.timeline,.rules,.week,.ice,.kpis{grid-template-columns:1fr}
+  .fmeta{display:none}
+}
+@media print{
+  header .deco{display:none}
+  body{background:#fff}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="deco d1"></div><div class="deco d2"></div>
+  <div class="wrap">
+    <div class="logo-row">
+      <svg style="height:30px;width:auto;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="-30.0 -30.0 2909.0 1082.0"><path transform="translate(0.0,773.0) scale(1,-1)" d="M47 0V527H203L219 471Q242 502 268.5 516.0Q295 530 319.0 533.5Q343 537 357 537Q399 537 436.5 522.5Q474 508 499 466Q522 496 548.5 511.0Q575 526 601.5 531.5Q628 537 652 537Q716 537 755.0 511.0Q794 485 812.5 438.0Q831 391 831 327V0H654V294Q654 306 652.5 320.0Q651 334 645.0 346.5Q639 359 628.0 367.5Q617 376 597 376Q576 376 563.0 368.0Q550 360 542.5 347.0Q535 334 532.0 317.5Q529 301 529 284V0H352V295Q352 306 350.0 319.5Q348 333 342.0 346.0Q336 359 323.5 367.5Q311 376 289 376Q258 376 244.0 359.0Q230 342 227.0 319.0Q224 296 224 279V0Z" fill="#FFFFFF"/><path transform="translate(854.0,773.0) scale(1,-1)" d="M213 -8Q176 -8 143.0 2.0Q110 12 84.5 32.0Q59 52 44.0 82.0Q29 112 29 153Q29 213 54.5 247.0Q80 281 123.5 297.0Q167 313 222.5 317.5Q278 322 338 322H362Q362 341 353.0 356.0Q344 371 327.5 380.0Q311 389 287 389Q270 389 254.0 384.0Q238 379 227.5 370.5Q217 362 215 350H39Q45 399 68.0 434.5Q91 470 126.0 492.5Q161 515 204.5 526.0Q248 537 295 537Q411 537 470.5 472.5Q530 408 530 283V0H367V69Q341 30 308.5 14.0Q276 -2 249.5 -5.0Q223 -8 213 -8ZM261 127Q286 127 309.5 139.5Q333 152 348.5 171.0Q364 190 364 209V213H265Q253 213 242.0 210.5Q231 208 222.5 203.0Q214 198 209.0 190.0Q204 182 204 170Q204 156 211.5 146.5Q219 137 232.0 132.0Q245 127 261 127Z" fill="#FFFFFF"/><path transform="translate(1410.0,773.0) scale(1,-1)" d="M317 -249Q251 -249 194.5 -227.5Q138 -206 99.5 -159.5Q61 -113 47 -39H227Q232 -53 243.5 -63.5Q255 -74 273.0 -80.0Q291 -86 314 -86Q356 -86 377.0 -67.5Q398 -49 405.0 -19.5Q412 10 412 42V56Q393 28 366.5 15.0Q340 2 313.0 -2.5Q286 -7 264 -7Q179 -7 126.5 30.5Q74 68 50.5 128.5Q27 189 27 256Q27 333 55.5 397.0Q84 461 139.5 499.0Q195 537 276 537Q326 537 358.5 522.0Q391 507 416 482L432 527H592V109Q592 -2 568.0 -82.0Q544 -162 484.0 -205.5Q424 -249 317 -249ZM308 152Q346 152 369.5 167.5Q393 183 404.0 209.0Q415 235 415 265Q415 296 404.0 321.5Q393 347 370.5 362.5Q348 378 311 378Q269 378 245.5 358.5Q222 339 212.5 312.0Q203 285 203 260Q203 234 213.0 209.0Q223 184 246.0 168.0Q269 152 308 152Z" fill="#FFFFFF"/><path transform="translate(2029.0,773.0) scale(1,-1)" d="M47 0V527H224V0ZM136 563Q88 563 58.5 591.5Q29 620 29 666Q29 713 60.0 743.0Q91 773 137 773Q181 773 212.0 744.5Q243 716 243 667Q243 620 213.5 591.5Q184 563 136 563Z" fill="#FFFFFF"/><path transform="translate(2281.0,773.0) scale(1,-1)" d="M290 -8Q210 -8 151.0 24.0Q92 56 59.5 116.5Q27 177 27 262Q27 350 60.5 411.5Q94 473 154.0 505.5Q214 538 293 538Q364 538 419.0 512.0Q474 486 506.0 437.0Q538 388 540 317H370Q364 346 343.5 361.0Q323 376 294 376Q258 376 238.0 357.5Q218 339 210.0 312.5Q202 286 202 262Q202 235 211.0 210.0Q220 185 240.0 169.0Q260 153 293 153Q325 153 345.0 168.5Q365 184 370 211H546Q544 139 509.0 90.5Q474 42 417.0 17.0Q360 -8 290 -8Z" fill="#FFFFFF"/></svg>
+      <div class="client-badge">Проєкт GUD</div>
+    </div>
+    <h1>CRO GUD Flow</h1>
+    <p class="tagline">Система безперервного покращення конверсії сайту. Кожен етап воронки — хоча б трохи краще, щотижня, за даними.</p>
+    <div class="cobrand"><i data-lucide="handshake" style="width:16px;height:16px"></i> Спільний робочий документ команди GUD та <span class="mm">magic</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <div class="eyebrow"><span class="num">1</span> Воронка та інструменти</div>
+  <h2>Що вимірюємо і чим</h2>
+  <p class="sub">Воронка рахується в унікальних сесіях за даними GA4 — скільки сесій дійшло до кожного етапу. Одне джерело, одна методологія, незмінно щотижня.</p>
+
+  <div class="funnel">
+    <div class="fstep"><div class="fbar" style="width:100%"><i data-lucide="users" class="icon"></i>Сесії на сайті</div><span class="fmeta">весь трафік, платний + органічний</span></div>
+    <div class="fstep"><div class="fbar" style="width:82%"><i data-lucide="eye" class="icon"></i>Перегляд товару</div><span class="fmeta">view_item</span></div>
+    <div class="fstep"><div class="fbar" style="width:60%"><i data-lucide="shopping-cart" class="icon"></i>Додавання в кошик</div><span class="fmeta">add_to_cart</span></div>
+    <div class="fstep"><div class="fbar" style="width:40%"><i data-lucide="credit-card" class="icon"></i>Початок чекауту</div><span class="fmeta">begin_checkout</span></div>
+    <div class="fstep"><div class="fbar" style="width:24%"><i data-lucide="check-circle" class="icon"></i>Покупка</div><span class="fmeta">purchase</span></div>
+  </div>
+
+  <div class="tools">
+    <div class="card tool">
+      <div class="thead"><i data-lucide="layout-dashboard" class="icon"></i><h3>Дашборд проєкту</h3></div>
+      <p>Щотижнева воронка на даних GA4 у загальному дашборді проєкту. Оновлюється автоматично щопонеділка — бачимо конверсію кожного етапу по тижнях.</p>
+    </div>
+    <div class="card tool">
+      <div class="thead"><i data-lucide="mouse-pointer-click" class="icon"></i><h3>Microsoft Clarity</h3></div>
+      <p>Записи сесій і теплові карти. Показує, де користувачі зупиняються, що ігнорують і де воронка втрачає людей — джерело гіпотез для правок.</p>
+    </div>
+    <div class="card tool">
+      <div class="thead"><i data-lucide="flask-conical" class="icon"></i><h3>A/B тести на Shopify</h3></div>
+      <p>Застосунок для спліт-тестування змін на сайті. Кожна правка проходить тест: рішення приймають дані, а не смак.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow"><span class="num">2</span> Ролі</div>
+  <h2>Хто за що відповідає</h2>
+  <div class="roles">
+    <div class="card role magic">
+      <span class="chip">magic</span>
+      <h3>Growth Marketer</h3>
+      <div class="who">аналітика та гіпотези</div>
+      <ul>
+        <li>Аналізує воронку та Clarity</li>
+        <li>Раз на квартал представляє пул правок CRO</li>
+        <li>Формує правки разом з Іваном</li>
+        <li>Запускає A/B тести та підбиває результати</li>
+      </ul>
+    </div>
+    <div class="card role client">
+      <span class="chip">розробка</span>
+      <h3>Іван</h3>
+      <div class="who">розробник сайту</div>
+      <ul>
+        <li>Оцінює технічну реалізованість правок</li>
+        <li>Разом з гроусом формує фінальний пул</li>
+        <li>Впроваджує зміни на сайті</li>
+      </ul>
+    </div>
+    <div class="card role client">
+      <span class="chip">GUD</span>
+      <h3>Ігор</h3>
+      <div class="who">власник бізнесу</div>
+      <ul>
+        <li>Затверджує пул правок на квартал</li>
+        <li>Приймає рішення у спірних питаннях</li>
+        <li>Бачить результати у дашборді проєкту</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow"><span class="num">3</span> Квартальний цикл</div>
+  <h2>Раз на три місяці — новий пул правок</h2>
+  <div class="timeline">
+    <div class="card tstep">
+      <div class="tnum">1</div>
+      <h3>Пул правок</h3>
+      <p>Growth Marketer представляє список змін, які хоче ввести — на основі даних воронки та Clarity.</p>
+    </div>
+    <div class="card tstep">
+      <div class="tnum">2</div>
+      <h3>Формування</h3>
+      <p>Разом з Іваном правки уточнюються: що технічно можливо, скільки займе, як тестувати.</p>
+    </div>
+    <div class="card tstep">
+      <div class="tnum">3</div>
+      <h3>Затвердження</h3>
+      <p>Ігор затверджує фінальний пул. Це беклог на квартал.</p>
+    </div>
+    <div class="card tstep">
+      <div class="tnum">4</div>
+      <h3>Запровадження</h3>
+      <p>Правки впроваджуються поступово, по одній, через A/B тести.</p>
+    </div>
+  </div>
+  <div class="cycle-note"><i data-lucide="repeat" class="icon"></i>Наприкінці кварталу — підсумок: що впровадили, який ефект на воронку, і новий пул на наступні три місяці.</div>
+</section>
+
+<section>
+  <div class="eyebrow"><span class="num">4</span> Правила тестування</div>
+  <h2>Одна правка — один тест</h2>
+  <div class="rules">
+    <div class="card rule ok">
+      <div class="ric"><i data-lucide="check" class="icon"></i></div>
+      <div><h3>1 правка = 1 A/B тест = 2–3 тижні</h3>
+      <p>Стільки потрібно, щоб зібрати достатньо трафіку і статистика була правильною. Технічні правки (баги, швидкість) тестів не потребують.</p></div>
+    </div>
+    <div class="card rule no">
+      <div class="ric"><i data-lucide="x" class="icon"></i></div>
+      <div><h3>Без паралельних тестів</h3>
+      <p>Два тести одночасно спотворюють результати одне одного — не знатимемо, що саме спрацювало.</p></div>
+    </div>
+    <div class="card rule ok">
+      <div class="ric"><i data-lucide="check" class="icon"></i></div>
+      <div><h3>Рішення за даними</h3>
+      <p>Після тесту обираємо найкращий варіант: впроваджуємо або відхиляємо. Без "здається, так краще".</p></div>
+    </div>
+    <div class="card rule ok">
+      <div class="ric"><i data-lucide="check" class="icon"></i></div>
+      <div><h3>Масштабування переможця</h3>
+      <p>Якщо правка стосується карток товару — переможний варіант розгортається на всі продукти.</p></div>
+    </div>
+  </div>
+  <div class="flow-strip">
+    <span class="fs"><i data-lucide="lightbulb" class="icon"></i>Гіпотеза</span><span class="arr">→</span>
+    <span class="fs"><i data-lucide="flask-conical" class="icon"></i>A/B тест 2–3 тижні</span><span class="arr">→</span>
+    <span class="fs"><i data-lucide="bar-chart-3" class="icon"></i>Аналіз</span><span class="arr">→</span>
+    <span class="fs"><i data-lucide="check-circle" class="icon"></i>Впровадити / відхилити</span><span class="arr">→</span>
+    <span class="fs"><i data-lucide="copy" class="icon"></i>Масштабувати на всі товари</span>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow"><span class="num">5</span> Щотижневий ритуал</div>
+  <h2>Понеділок, 15 хвилин</h2>
+  <div class="week">
+    <div class="card wcard">
+      <div class="whead"><i data-lucide="layout-dashboard" class="icon"></i><h3>Воронка в дашборді</h3></div>
+      <p>Перевірити, що дані оновились, і подивитись конверсію етапів за минулий тиждень. Просідання — привід копнути глибше.</p>
+    </div>
+    <div class="card wcard">
+      <div class="whead"><i data-lucide="video" class="icon"></i><h3>Clarity</h3></div>
+      <p>Переглянути записи сесій та теплові карти на сторінках, де просіла конверсія. Нові інсайти — у пул гіпотез.</p>
+    </div>
+    <div class="card wcard">
+      <div class="whead"><i data-lucide="flask-conical" class="icon"></i><h3>Статус тесту</h3></div>
+      <p>Перевірити активний A/B тест: чи набирається трафік, чи не зламалось відображення. Якщо минуло 2–3 тижні — підбити результат.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow"><span class="num">6</span> Пріоритезація</div>
+  <h2>Що тестуємо першим</h2>
+  <p class="sub">Кожна правка з пулу оцінюється за трьома критеріями від 1 до 5. Тестуємо у порядку загального балу.</p>
+  <div class="ice">
+    <div class="card">
+      <div class="letter">I</div>
+      <h3>Impact — вплив</h3>
+      <p>Наскільки правка може підняти конверсію етапу. Правки на етапах з найбільшим просіданням — попереду.</p>
+    </div>
+    <div class="card">
+      <div class="letter">C</div>
+      <h3>Confidence — впевненість</h3>
+      <p>Скільки даних за гіпотезою: записи Clarity, цифри воронки, скарги покупців — чи лише припущення.</p>
+    </div>
+    <div class="card">
+      <div class="letter">E</div>
+      <h3>Ease — легкість</h3>
+      <p>Наскільки просто Івану реалізувати. Швидкі правки з високим впливом — найцінніші.</p>
+    </div>
+  </div>
+  <p class="ice-note">Бал = (I + C + E) / 3. За рівного балу перевага — правці на нижчому етапі воронки: вона ближча до грошей.</p>
+</section>
+
+<section>
+  <div class="eyebrow"><span class="num">7</span> Картка тесту</div>
+  <h2>Журнал тестів</h2>
+  <p class="sub">Кожен A/B тест фіксується за цим шаблоном — щоб рішення й результати не губились і накопичувалась база знань проєкту.</p>
+  <table>
+    <tr><th colspan="2">Шаблон картки тесту</th></tr>
+    <tr><td>Назва</td><td>Коротко: що змінюємо і де. Напр. "Кнопка «Купити» — колір і текст, картка товару"</td></tr>
+    <tr><td>Етап воронки</td><td>Який етап має покращити: view_item → add_to_cart, checkout → purchase тощо</td></tr>
+    <tr><td>Гіпотеза</td><td>"Якщо змінимо X, то метрика Y зросте, бо Z (дані з Clarity / воронки)"</td></tr>
+    <tr><td>Ключова метрика</td><td>Одна метрика рішення. Напр. конверсія в add_to_cart</td></tr>
+    <tr><td>Дати</td><td>Старт — фініш (2–3 тижні)</td></tr>
+    <tr><td>Результат</td><td>A vs B у цифрах, обсяг трафіку на варіант</td></tr>
+    <tr><td>Рішення</td><td>Впроваджено / відхилено + масштабовано на всі товари (так/ні)</td></tr>
+  </table>
+</section>
+
+<section>
+  <div class="eyebrow"><span class="num">8</span> KPI</div>
+  <h2>Цільові конверсії етапів</h2>
+  <p class="sub">Мета — не разовий стрибок, а стабільний приріст конверсії кожного етапу від кварталу до кварталу.</p>
+  <div class="kpis">
+    <div class="card kpi"><div class="kv">Сесія → Товар</div><div class="kl">частка сесій з переглядом товару</div></div>
+    <div class="card kpi"><div class="kv">Товар → Кошик</div><div class="kl">ATC rate, бенчмарк e-commerce: 3–6%</div></div>
+    <div class="card kpi"><div class="kv">Кошик → Чекаут</div><div class="kl">частка кошиків, що дійшли до оплати</div></div>
+    <div class="card kpi"><div class="kv">Чекаут → Покупка</div><div class="kl">завершення оплати</div></div>
+  </div>
+  <div class="kpi-note"><i data-lucide="target" class="icon"></i>Числові цілі калібруються після 4 тижнів даних: KPI = медіана найкращих тижнів. Далі — перегляд щокварталу разом з пулом правок.</div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fm">GUD <span class="mm">× magic</span> · CRO Flow</div>
+    <p>Спільний робочий документ команди GUD та Magic · ceo@magicecom.agency</p>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>
